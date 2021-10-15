@@ -34,11 +34,11 @@ import time
 import BaseHTTPServer
 import sys
 import os
+from virtual_video import VirtualVideo
 from argparse import ArgumentParser
 from collections import defaultdict
 from list_directory import list_directory
 import itertools
-# sys.path.append('..')
 
 # Default values
 DEFAULT_HOSTNAME = '127.0.0.1'
@@ -62,7 +62,7 @@ HTML_404 = "404.html"
 # Has the Keys :
 #       'session_list' = List of active session ID's = {connection_id, port}
 #       'delay' : iterator to check if we need to delay or not
-
+# connection_id -> VirtualVideo
 ACTIVE_DICT = defaultdict(dict)
 
 # DELAY Parameters
@@ -90,19 +90,19 @@ class MyHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         if request.startswith('/'):
             request = request[1:]
         # connection_id = client IP, dirname of file
-        connection_id = (self.client_address[0],
-                         os.path.dirname(self.path))
+        connection_id = self.client_address[0]
         shutdown = False
         #check if the request is for the a directory
-        print(request)
+        print("request: {}".format(request))
         if request.endswith('/'):
             dir_listing = list_directory(request)
             duration = dir_write(self.wfile, dir_listing)
         elif request in HTML_PAGES:
-            print "Request HTML %s" % request
+            print("Request HTML %s" % request)
             duration = normal_write(self.wfile, request)
         elif request in MPD_FILES:
-            print "Request for MPD %s" % request
+            print("Request for MPD %s" % request)
+            print("Setup Connection: {}".format(connection_id))
             duration = normal_write(self.wfile, request)  #, **kwargs)
             # assuming that the new session always
             # starts with the download of the MPD file
@@ -110,25 +110,24 @@ class MyHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             # in the ACTIVE_DICT
             if connection_id in ACTIVE_DICT:
                 del (ACTIVE_DICT[connection_id])
-        elif request.split('.')[-1] in ['m4f', 'mp4']:
-            print "Request for DASH Media %s" % request
-            if connection_id not in ACTIVE_DICT:
-                ACTIVE_DICT[connection_id] = {
-                    'file_list': [os.path.basename(request)],
-                    'iter': itertools.cycle(delay_decision())}
-            else:
-                ACTIVE_DICT[connection_id]['file_list'].append(
-                    os.path.basename(request))
-
-            duration, file_size = normal_write(self.wfile, request)
-            print 'Normal: Request took {} seconds for size of {}'.format(duration, file_size)
-
-            # if ACTIVE_DICT[connection_id]['iter'].next() == 0:
-            #     duration = slow_write(output=self.wfile, request=request, rate=SLOW_RATE)
-            #     print 'Slow: Request took %f seconds' % duration
+            ACTIVE_DICT[connection_id] = VirtualVideo(request)
+        elif request.split('.')[-1] in ['m4s', 'mp4']:
+            print("Request for DASH Media %s" % request)
+            # if connection_id not in ACTIVE_DICT:
+            #     ACTIVE_DICT[connection_id] = {
+            #         'file_list': [os.path.basename(request)],
+            #         'iter': itertools.cycle(delay_decision())}
             # else:
-            #     duration = normal_write(self.wfile, request)
-            #     print 'Normal: Request took %f seconds' % duration
+            #     ACTIVE_DICT[connection_id]['file_list'].append(
+            #         os.path.basename(request))
+            if connection_id not in ACTIVE_DICT:
+                # throw exception
+                print("Error: connection_id: {}".format(connection_id))
+                pass
+            else:
+                segment_size = ACTIVE_DICT[connection_id].get_video(request)
+                duration, file_size = virtual_write(self.wfile, segment_size)
+                print('Normal: Request took {} seconds for size of {}'.format(duration, file_size))
         else:
             self.send_error(404)
             return
@@ -140,6 +139,24 @@ class MyHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         if shutdown:
             self.server.shutdown()
 
+def virtual_write(output, size):
+    """Function to write arbitrary bytes to output stream"""
+    start_time = time.time()
+    data_len = 0
+    dummy_data = "".join(["a" for i in range(BLOCK_SIZE)])
+    while True:
+        if size < BLOCK_SIZE:
+            data = dummy_data[:size]
+        else:
+            data = dummy_data
+        output.write(data)
+        data_len += len(data)
+        size -= len(data)
+        if size <= 0:
+            break
+    now = time.time()
+    output.flush()
+    return now-start_time, data_len
 
 def normal_write(output, request):
     """Function to write the video onto output stream"""
@@ -178,7 +195,7 @@ def slow_write(output, request, rate=None):
     """Function to write the video onto output stream with interruptions in
     the stream
     """
-    print "Slow write of %s" % request
+    print("Slow write of %s" % request)
     with open(request, 'r') as request_file:
         start_time = time.time()
         data = request_file.read(BLOCK_SIZE)
@@ -186,7 +203,7 @@ def slow_write(output, request, rate=None):
         last_send = time.time()
         current_stream = len(data)
         while data != '':
-            print "In loop"
+            print("In loop")
             if rate:
                 if curr_send_rate(BLOCK_SIZE, last_send - time.time()) > rate:
                     continue
@@ -198,13 +215,13 @@ def slow_write(output, request, rate=None):
             data = request_file.read(BLOCK_SIZE)
         now = time.time()
         output.flush()
-    print 'Served %d bytes of file: %s in %f seconds' % (
-        current_stream, request, now - start_time)
+    print('Served %d bytes of file: %s in %f seconds' % (
+        current_stream, request, now - start_time) )
     return now - start_time
 
 
 def curr_send_rate(data_size, time_to_send_data):
-    """ Method to calculate the current rate at which the data 
+    """ Method to calculate the current rate at which the data
         is being sent. Data_size in byes
         The return value is in kbps
     """
@@ -222,8 +239,8 @@ def start_server():
     """ Module to start the server"""
     http_server = BaseHTTPServer.HTTPServer((HOSTNAME, PORT),
                                             MyHTTPRequestHandler)
-    print " ".join(("Listening on ", HOSTNAME, " at Port ",
-                    str(PORT), " - press ctrl-c to stop"))
+    print( " ".join(("Listening on ", HOSTNAME, " at Port ",
+                    str(PORT), " - press ctrl-c to stop")) )
     # Use this Version of HTTP Protocol
     http_server.protocol_version = HTTP_VERSION
     http_server.serve_forever()
@@ -252,7 +269,6 @@ def main():
     parser = ArgumentParser(description='Process server parameters')
     create_arguments(parser)
     args = parser.parse_args()
-    #print "Len of args", len(args)
     update_config(args)
     start_server()
 

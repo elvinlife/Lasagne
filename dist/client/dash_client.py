@@ -41,7 +41,7 @@ except NameError:
 
 # Constants
 DEFAULT_PLAYBACK = 'BASIC'
-DOWNLOAD_CHUNK = 1024
+DOWNLOAD_CHUNK = 10240
 
 # Globals for arg parser with the default values
 # Not sure if this is the correct way ....
@@ -206,17 +206,14 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
         # Getting the URL list for each bitrate
         dp_object.video[bitrate] = read_mpd.get_url_list(dp_object.video[bitrate], video_segment_duration,
                                                          dp_object.playback_duration, bitrate)
-
         if "$Bandwidth$" in dp_object.video[bitrate].initialization:
             dp_object.video[bitrate].initialization = dp_object.video[bitrate].initialization.replace(
                 "$Bandwidth$", str(bitrate))
-        media_urls = [dp_object.video[bitrate].initialization] + dp_object.video[bitrate].url_list
+        #media_urls = [dp_object.video[bitrate].initialization] + dp_object.video[bitrate].url_list
+        media_urls = dp_object.video[bitrate].url_list
         #print "media urls"
-        #print media_urls
+        #print(media_urls)
         for segment_count, segment_url in enumerate(media_urls, dp_object.video[bitrate].start):
-            # segment_duration = dp_object.video[bitrate].segment_duration
-            #print "segment url"
-            #print segment_url
             dp_list[segment_count][bitrate] = segment_url
     bitrates = dp_object.video.keys()
     bitrates.sort()
@@ -307,16 +304,8 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 current_bitrate, average_dwn_time = basic_dash.basic_dash(segment_number, bitrates, average_dwn_time,
                                                                           segment_download_time, current_bitrate)
         segment_path = dp_list[segment][current_bitrate]
-        #print   "domain"
-        #print domain
-        #print "segment"
-        #print segment
-        #print "current bitrate"
-        #print current_bitrate
-        #print segment_path
+     
         segment_url = urlparse.urljoin(domain, segment_path)
-        #print "segment url"
-        #print segment_url
         config_dash.LOG.info("{}: Segment URL = {}".format(playback_type.upper(), segment_url))
         if delay:
             delay_start = time.time()
@@ -539,4 +528,6 @@ def main():
         return None
 
 if __name__ == "__main__":
+    import httplib
+    httplib._MAXLINE = 1<<30
     sys.exit(main())
