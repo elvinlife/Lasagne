@@ -20,11 +20,12 @@
 #
 
 from time import strftime
+import logging
 import os
 # The configuration file for the AStream module
 # create logger
 LOG_NAME = 'AStream_log'
-LOG_LEVEL = None
+LOG_LEVEL = logging.DEBUG
 
 # Set '-' to print to screen
 LOG_FOLDER = "ASTREAM_LOGS/"

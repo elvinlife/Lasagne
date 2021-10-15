@@ -38,7 +38,10 @@ from virtual_video import VirtualVideo
 from argparse import ArgumentParser
 from collections import defaultdict
 from list_directory import list_directory
-import itertools
+import logging
+sys.path.append("./dist/util/")
+from configure_log_file import configure_log_file, write_json
+import config_dash
 
 # Default values
 DEFAULT_HOSTNAME = '127.0.0.1'
@@ -270,8 +273,10 @@ def main():
     create_arguments(parser)
     args = parser.parse_args()
     update_config(args)
+    configure_log_file(log_file=None)
     start_server()
 
 
 if __name__ == "__main__":
+    config_dash.LOG_LEVEL = logging.INFO
     sys.exit(main())

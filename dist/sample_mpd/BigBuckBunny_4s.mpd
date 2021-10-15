@@ -2020,13 +2020,13 @@
 	    <SegmentSize id="BigBuckBunny_4s11.m4s" size="7152.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s12.m4s" size="7472.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s13.m4s" size="7544.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s14.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s14.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s15.m4s" size="2600.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s16.m4s" size="3856.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s17.m4s" size="6392.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s18.m4s" size="4856.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s19.m4s" size="5776.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s20.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s20.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s21.m4s" size="6280.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s22.m4s" size="2688.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s23.m4s" size="4000.0" scale="Kbits"/>
@@ -2085,7 +2085,7 @@
 	    <SegmentSize id="BigBuckBunny_4s76.m4s" size="5304.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s77.m4s" size="6656.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s78.m4s" size="6480.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s79.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s79.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s80.m4s" size="6680.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s81.m4s" size="6152.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s82.m4s" size="7144.0" scale="Kbits"/>
@@ -2094,11 +2094,11 @@
 	    <SegmentSize id="BigBuckBunny_4s85.m4s" size="3624.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s86.m4s" size="6224.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s87.m4s" size="7728.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s88.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s88.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s89.m4s" size="7136.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s90.m4s" size="7584.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s91.m4s" size="6672.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s92.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s92.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s93.m4s" size="6752.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s94.m4s" size="4984.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s95.m4s" size="5440.0" scale="Kbits"/>
@@ -2112,7 +2112,7 @@
 	    <SegmentSize id="BigBuckBunny_4s103.m4s" size="5904.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s104.m4s" size="6488.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s105.m4s" size="4792.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s106.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s106.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s107.m4s" size="6800.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s108.m4s" size="6344.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s109.m4s" size="7472.0" scale="Kbits"/>
@@ -2133,11 +2133,11 @@
 	    <SegmentSize id="BigBuckBunny_4s124.m4s" size="4448.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s125.m4s" size="4904.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s126.m4s" size="6600.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s127.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s127.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s128.m4s" size="7496.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s129.m4s" size="7568.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s130.m4s" size="7552.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s131.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s131.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s132.m4s" size="7160.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s133.m4s" size="7408.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s134.m4s" size="7200.0" scale="Kbits"/>
@@ -2147,7 +2147,7 @@
 	    <SegmentSize id="BigBuckBunny_4s138.m4s" size="7544.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s139.m4s" size="7736.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s140.m4s" size="7688.0" scale="Kbits"/>
-	    <SegmentSize id="BigBuckBunny_4s141.m4s" size="8000.0" scale="Mbits"/>
+	    <SegmentSize id="BigBuckBunny_4s141.m4s" size="8000.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s142.m4s" size="7544.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s143.m4s" size="6192.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s144.m4s" size="5080.0" scale="Kbits"/>
@@ -2161,140 +2161,140 @@
 	  
 	  <Representation id="1920x1080 2.1Mbps" mimeType="video/mp4" codecs="avc1.42c032" width="1920" height="1080" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="2087347" >
 	  	<SegmentTemplate timescale="96" media="media/BigBuckBunny/4sec/bunny_$Bandwidth$bps/BigBuckBunny_4s$Number$%d.m4s" startNumber="1" duration="384" initialization="media/BigBuckBunny/4sec/bunny_$Bandwidth$bps/BigBuckBunny_4s_init.mp4" />
-		<SegmentSize id="BigBuckBunny_4s1.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s2.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s3.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s4.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s5.m4s" size="6704.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s6.m4s" size="5480.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s7.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s8.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s9.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s10.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s11.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s12.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s13.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s14.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s15.m4s" size="4840.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s16.m4s" size="7720.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s17.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s18.m4s" size="7432.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s19.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s20.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s21.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s22.m4s" size="4968.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s23.m4s" size="5896.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s24.m4s" size="4512.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s25.m4s" size="4800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s26.m4s" size="7248.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s27.m4s" size="7304.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s28.m4s" size="6584.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s29.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s30.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s31.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s32.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s33.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s34.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s35.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s36.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s37.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s38.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s39.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s40.m4s" size="6008.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s41.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s42.m4s" size="7600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s43.m4s" size="6616.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s44.m4s" size="6656.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s45.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s46.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s47.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s48.m4s" size="5960.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s49.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s50.m4s" size="6512.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s51.m4s" size="7528.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s52.m4s" size="7312.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s53.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s54.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s55.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s56.m4s" size="5656.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s57.m4s" size="7000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s58.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s59.m4s" size="7640.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s60.m4s" size="7448.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s61.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s62.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s63.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s64.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s65.m4s" size="7528.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s66.m4s" size="7144.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s67.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s68.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s69.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s70.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s71.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s72.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s73.m4s" size="7264.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s74.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s75.m4s" size="7392.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s76.m4s" size="7144.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s77.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s78.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s79.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s80.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s81.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s82.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s83.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s84.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s85.m4s" size="5392.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s86.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s87.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s88.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s89.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s90.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s91.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s92.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s93.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s94.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s95.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s96.m4s" size="7256.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s97.m4s" size="4544.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s98.m4s" size="6448.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s99.m4s" size="6992.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s100.m4s" size="7296.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s101.m4s" size="6240.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s102.m4s" size="6736.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s103.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s104.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s105.m4s" size="7736.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s106.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s107.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s108.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s109.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s110.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s111.m4s" size="7576.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s112.m4s" size="7400.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s113.m4s" size="5960.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s114.m4s" size="5832.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s115.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s116.m4s" size="6296.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s117.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s118.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s119.m4s" size="7184.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s120.m4s" size="8000.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s121.m4s" size="5968.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s122.m4s" size="7424.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s123.m4s" size="6904.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s124.m4s" size="7184.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s125.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s126.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s127.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s128.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s129.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s130.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s131.m4s" size="9600.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s132.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s133.m4s" size="8800.0" scale="Mbits"/>
-	    <SegmentSize id="BigBuckBunny_4s134.m4s" size="8800.0" scale="Mbits"/>
+		<SegmentSize id="BigBuckBunny_4s1.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s2.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s3.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s4.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s5.m4s" size="6704.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s6.m4s" size="5480.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s7.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s8.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s9.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s10.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s11.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s12.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s13.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s14.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s15.m4s" size="4840.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s16.m4s" size="7720.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s17.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s18.m4s" size="7432.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s19.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s20.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s21.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s22.m4s" size="4968.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s23.m4s" size="5896.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s24.m4s" size="4512.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s25.m4s" size="4800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s26.m4s" size="7248.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s27.m4s" size="7304.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s28.m4s" size="6584.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s29.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s30.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s31.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s32.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s33.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s34.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s35.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s36.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s37.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s38.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s39.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s40.m4s" size="6008.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s41.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s42.m4s" size="7600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s43.m4s" size="6616.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s44.m4s" size="6656.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s45.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s46.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s47.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s48.m4s" size="5960.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s49.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s50.m4s" size="6512.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s51.m4s" size="7528.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s52.m4s" size="7312.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s53.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s54.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s55.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s56.m4s" size="5656.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s57.m4s" size="7000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s58.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s59.m4s" size="7640.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s60.m4s" size="7448.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s61.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s62.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s63.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s64.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s65.m4s" size="7528.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s66.m4s" size="7144.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s67.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s68.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s69.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s70.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s71.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s72.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s73.m4s" size="7264.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s74.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s75.m4s" size="7392.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s76.m4s" size="7144.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s77.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s78.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s79.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s80.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s81.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s82.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s83.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s84.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s85.m4s" size="5392.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s86.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s87.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s88.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s89.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s90.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s91.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s92.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s93.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s94.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s95.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s96.m4s" size="7256.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s97.m4s" size="4544.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s98.m4s" size="6448.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s99.m4s" size="6992.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s100.m4s" size="7296.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s101.m4s" size="6240.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s102.m4s" size="6736.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s103.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s104.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s105.m4s" size="7736.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s106.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s107.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s108.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s109.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s110.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s111.m4s" size="7576.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s112.m4s" size="7400.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s113.m4s" size="5960.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s114.m4s" size="5832.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s115.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s116.m4s" size="6296.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s117.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s118.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s119.m4s" size="7184.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s120.m4s" size="8000.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s121.m4s" size="5968.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s122.m4s" size="7424.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s123.m4s" size="6904.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s124.m4s" size="7184.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s125.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s126.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s127.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s128.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s129.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s130.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s131.m4s" size="9600.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s132.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s133.m4s" size="8800.0" scale="Kbits"/>
+	    <SegmentSize id="BigBuckBunny_4s134.m4s" size="8800.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s135.m4s" size="8800.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s136.m4s" size="8800.0" scale="Kbits"/>
 	    <SegmentSize id="BigBuckBunny_4s137.m4s" size="9600.0" scale="Kbits"/>

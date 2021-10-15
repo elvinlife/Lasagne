@@ -3,7 +3,6 @@ __author__ = 'pjuluri'
 import config_dash
 from adaptation import calculate_rate_index
 
-
 def basic_dash(segment_number, bitrates, average_dwn_time,
                segment_download_time, curr_rate):
     """
@@ -25,7 +24,7 @@ def basic_dash(segment_number, bitrates, average_dwn_time,
                                                                                                      updated_dwn_time,
                                                                                                      average_dwn_time))
 
-    bitrates = [float(i) for i in bitrates]
+    #bitrates = [float(i) for i in bitrates]
     bitrates.sort()
     try:
         sigma_download = average_dwn_time / segment_download_time

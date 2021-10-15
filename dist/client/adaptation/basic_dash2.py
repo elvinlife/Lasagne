@@ -30,7 +30,7 @@ def basic_dash2(segment_number, bitrates, average_dwn_time,
                                                                                                      average_dwn_time))
     # Calculate the running download_rate in Kbps for the most recent segments
     download_rate = sum(recent_download_sizes) * 8 / (updated_dwn_time * len(previous_segment_times))
-    bitrates = [float(i) for i in bitrates]
+    #bitrates = [float(i) for i in bitrates]
     bitrates.sort()
     next_rate = bitrates[0]
 
@@ -56,5 +56,6 @@ def basic_dash2(segment_number, bitrates, average_dwn_time,
             else:
                 next_rate = bitrates[index - 1]
                 break
-    config_dash.LOG.info("Basic Adaptation: Download Rate = {}, next_bitrate = {}".format(download_rate, next_rate))
+    config_dash.LOG.info("Basic Adaptation: Download Rate = %dKbps, next_bitrate = %dKbps" % \
+            (int(download_rate) >> 10, next_rate >> 10))
     return next_rate, updated_dwn_time
