@@ -56,7 +56,6 @@ def get_rate_netflix(bitrates, current_buffer_occupancy, buffer_size=config_dash
     # Calculate the current buffer occupancy percentage
     try:
         buffer_percentage = current_buffer_occupancy/buffer_size
-        print buffer_percentage
     except ZeroDivisionError:
         config_dash.LOG.error("Buffer Size was found to be Zero")
         return None
@@ -73,6 +72,7 @@ def get_rate_netflix(bitrates, current_buffer_occupancy, buffer_size=config_dash
             if marker < buffer_percentage:
                 break
             next_bitrate = rate_map[marker]
+    config_dash.LOG.info("NETFLIX: buffer_percentage: %.3f Next bitrate = %d Kbps" % (buffer_percentage, next_bitrate>>10))
     return next_bitrate
 
 
@@ -80,7 +80,7 @@ def netflix_dash(bitrates, dash_player, segment_download_rate, curr_bitrate, ave
     """
     Netflix rate adaptation module
     """
-    available_video_segments = dash_player.buffer.qsize() - dash_player.initial_buffer
+    available_video_segments = dash_player.buffer_length - dash_player.initial_buffer
     if not (curr_bitrate or rate_map or state):
         rate_map = get_rate_map(bitrates)
         state = "INITIAL"

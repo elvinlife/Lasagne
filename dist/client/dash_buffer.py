@@ -21,8 +21,6 @@ class DashPlayer:
         self.playback_start_time = None
         self.playback_duration = video_length
         self.segment_duration = segment_duration
-        #print "video_length = {}".format(video_length)
-        #print "segment_duration = {}".format(segment_duration)
         # Timers to keep track of playback time and the actual time
         self.playback_timer = StopWatch()
         self.actual_start_time = None
@@ -202,8 +200,8 @@ class DashPlayer:
         if not self.actual_start_time:
             self.actual_start_time = time.time()
             config_dash.JSON_HANDLE['playback_info']['start_time'] = self.actual_start_time
-        config_dash.LOG.info("Writing segment {} at time {}".format(segment['segment_number'],
-                                                                    time.time() - self.actual_start_time))
+        config_dash.LOG.info("Writing segment %d at time %.2f" % 
+                (segment['segment_number'], time.time() - self.actual_start_time))
         self.buffer_lock.acquire()
         self.buffer.put(segment)
         self.buffer_lock.release()
@@ -237,6 +235,7 @@ class DashPlayer:
             header_row = None
             if self.actual_start_time:
                 log_time = time.time() - self.actual_start_time
+                log_time = round(log_time, 2)
             else:
                 log_time = 0
             if not os.path.exists(self.buffer_log_file):
@@ -252,5 +251,9 @@ class DashPlayer:
                 if header_row:
                     result_writer.writerow(header_row)
                 result_writer.writerow(str_stats)
-            config_dash.LOG.info("BufferStats: EpochTime=%s,CurrentPlaybackTime=%s,CurrentBufferSize=%s,"
-                                 "CurrentPlaybackState=%s,Action=%s,Bitrate=%s" % tuple(str_stats))
+            # config_dash.LOG.info("BufferStats: EpochTime=%s,CurrentPlaybackTime=%s,CurrentBufferSize=%s,"
+            #                      "CurrentPlaybackState=%s,Action=%s,Bitrate=%s" % tuple(str_stats))
+            config_dash.LOG.info("BufferStats: EpochTime: %.2f CurrentPlayBackTime: %d SegmentNum: %d "
+                        "BufferSize: %d PlayBackState: %s Action: %s Bitrate: %dKbps" % \
+                        (log_time, self.playback_timer.time(), self.buffer.qsize(), \
+                            self.buffer_length, self.playback_state, action, bitrate>>10))

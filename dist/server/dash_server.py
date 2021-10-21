@@ -58,7 +58,7 @@ HTTP_VERSION = "HTTP/1.1"
 SLOW_RATE = DEFAULT_SLOW_RATE
 
 HTML_PAGES = ['index.html', 'list.html', 'media/my_image.png']
-MPD_FILES = ['dist/sample_mpd/BigBuckBunny_4s.mpd', "media/mpd/x4ukwHdACDw_filesize.mpd"]
+MPD_FILES = ['dist/sample_mpd/BigBuckBunny_4s.mpd', "dist/sample_mpd/BigBuckBunny.mpd"]
 HTML_404 = "404.html"
 
 # dict that holds the current active sessions
