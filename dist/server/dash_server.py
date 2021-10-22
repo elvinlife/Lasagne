@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """A simple HTTP server
 
 To start the server:
@@ -37,7 +37,6 @@ import os
 from virtual_video import VirtualVideo
 from argparse import ArgumentParser
 from collections import defaultdict
-from list_directory import list_directory
 import logging
 sys.path.append("./dist/util/")
 from configure_log_file import configure_log_file, write_json
@@ -96,11 +95,7 @@ class MyHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         connection_id = self.client_address[0]
         shutdown = False
         #check if the request is for the a directory
-        print("request: {}".format(request))
-        if request.endswith('/'):
-            dir_listing = list_directory(request)
-            duration = dir_write(self.wfile, dir_listing)
-        elif request in HTML_PAGES:
+        if request in HTML_PAGES:
             print("Request HTML %s" % request)
             duration = normal_write(self.wfile, request)
         elif request in MPD_FILES:
@@ -115,22 +110,17 @@ class MyHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 del (ACTIVE_DICT[connection_id])
             ACTIVE_DICT[connection_id] = VirtualVideo(request)
         elif request.split('.')[-1] in ['m4s', 'mp4']:
-            print("Request for DASH Media %s" % request)
-            # if connection_id not in ACTIVE_DICT:
-            #     ACTIVE_DICT[connection_id] = {
-            #         'file_list': [os.path.basename(request)],
-            #         'iter': itertools.cycle(delay_decision())}
-            # else:
-            #     ACTIVE_DICT[connection_id]['file_list'].append(
-            #         os.path.basename(request))
+            print("\n")
+            config_dash.LOG.info("Request for DASH Media %s" % request)
             if connection_id not in ACTIVE_DICT:
-                # throw exception
                 print("Error: connection_id: {}".format(connection_id))
+                shutdown = True
                 pass
             else:
                 segment_size = ACTIVE_DICT[connection_id].get_video(request)
                 duration, file_size = virtual_write(self.wfile, segment_size)
-                print('Normal: Request took {} seconds for size of {}'.format(duration, file_size))
+                config_dash.LOG.info("Stream time: %.2fs segment_size: %d stream_rate: %dKbps" \
+                    % ( duration, file_size, int(file_size / duration * 8) >> 10))
         else:
             self.send_error(404)
             return

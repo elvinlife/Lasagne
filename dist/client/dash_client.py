@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Author:            Parikshit Juluri
 Contact:           pjuluri@umkc.edu
@@ -68,7 +68,7 @@ class DashPlayback:
 
 def get_mpd(url):
     """ Module to download the MPD from the URL and save it to file"""
-    print url
+    print(url)
     try:
         connection = urllib2.urlopen(url, timeout=10)
     except urllib2.HTTPError, error:
@@ -77,7 +77,7 @@ def get_mpd(url):
     except urllib2.URLError:
         error_message = "URLError. Unable to reach Server.Check if Server active"
         config_dash.LOG.error(error_message)
-        print error_message
+        print(error_message)
         return None
     except IOError, httplib.HTTPException:
         message = "Unable to , file_identifierdownload MPD file HTTP Error."
@@ -119,30 +119,23 @@ def id_generator(id_size=6):
 
 def download_segment(segment_url, dash_folder):
     """ Module to download the segment """
+    t1 = timeit.default_timer()
     try:
         connection = urllib2.urlopen(segment_url)
     except urllib2.HTTPError, error:
         config_dash.LOG.error("Unable to download DASH Segment {} HTTP Error:{} ".format(segment_url, str(error.code)))
         return None
-    parsed_uri = urlparse.urlparse(segment_url)
-    segment_path = '{uri.path}'.format(uri=parsed_uri)
-    while segment_path.startswith('/'):
-        segment_path = segment_path[1:]
-    # print(dash_folder)
-    # print(segment_path)
-    segment_filename = os.path.join(dash_folder, os.path.basename(segment_path))
-    # make_sure_path_exists(os.path.dirname(segment_filename))
-    # segment_file_handle = open(segment_filename, 'wb')
+    t2 = timeit.default_timer()
     segment_size = 0
     while True:
         segment_data = connection.read(DOWNLOAD_CHUNK)
         segment_size += len(segment_data)
-        #segment_file_handle.write(segment_data)
         if len(segment_data) < DOWNLOAD_CHUNK:
             break
+    t3 = timeit.default_timer()
+    config_dash.LOG.info("set_connection_time: %.2fs download_time: %.2fs" % (t2-t1, t3-t2))
     connection.close()
-    #segment_file_handle.close()
-    return segment_size, segment_filename
+    return segment_size, ""
 
 
 def get_media_all(domain, media_info, file_identifier, done_queue):
@@ -175,9 +168,9 @@ def make_sure_path_exists(path):
 
 def print_representations(dp_object):
     """ Module to print the representations"""
-    print "The DASH media has the following video representations/bitrates"
+    print("The DASH media has the following video representations/bitrates")
     for bandwidth in dp_object.video:
-        print bandwidth
+        print(bandwidth)
 
 
 def start_playback_smart(dp_object, domain, playback_type=None, download=False, video_segment_duration=None):
@@ -213,8 +206,6 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 "$Bandwidth$", str(bitrate))
         #media_urls = [dp_object.video[bitrate].initialization] + dp_object.video[bitrate].url_list
         media_urls = dp_object.video[bitrate].url_list
-        #print "media urls"
-        #print(media_urls)
         for segment_count, segment_url in enumerate(media_urls, dp_object.video[bitrate].start):
             dp_list[segment_count][bitrate] = segment_url
     bitrates = dp_object.video.keys()
@@ -227,7 +218,6 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
     weighted_mean_object = None
     current_bitrate = bitrates[0]
     previous_bitrate = None
-    total_downloaded = 0
     # Delay in terms of the number of segments
     delay = 0
     segment_duration = 0
@@ -328,13 +318,12 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
             config_dash.JSON_HANDLE["segment_info"] = list()
         config_dash.JSON_HANDLE["segment_info"].append((segment_name, current_bitrate, segment_size,
                                                         segment_download_time))
-        total_downloaded += segment_size
-        config_dash.LOG.info("%s: total_downloaded: %dMB segment_size: %dKB segment_number: %d download_time: %.2fs"
+        config_dash.LOG.info("%s: segment_size: %dKB segment_id: %d download_time: %.2fs download_rate: %dKbps"
             % ( playback_type.upper(),
-            total_downloaded >> 20,
             segment_size >> 10,
             segment_number,
-            segment_download_time) )
+            segment_download_time,
+            int(8 * segment_size / segment_download_time) >> 10 ) )
         if playback_type.upper() == "SMART" and weighted_mean_object:
             weighted_mean_object.update_weighted_mean(segment_size, segment_download_time)
 
@@ -485,7 +474,7 @@ def main():
     configure_log_file(playback_type=PLAYBACK.lower())
     config_dash.JSON_HANDLE['playback_type'] = PLAYBACK.lower()
     if not MPD:
-        print "ERROR: Please provide the URL to the MPD file. Try Again.."
+        print("ERROR: Please provide the URL to the MPD file. Try Again..")
         return None
     config_dash.LOG.info('Downloading MPD file %s' % MPD)
     # Retrieve the MPD files for the video

@@ -32,6 +32,6 @@ class VirtualVideo():
         fields = video_url.split("/")
         bandwidth = int( fields[-2].split("_")[-1][:-3] )
         segment_id = int( fields[-1].split("_")[-1].split(".")[0][2:] )
-        config_dash.LOG.info("bw: {} segment_id: {} size: {}".format(bandwidth, segment_id, media_object[bandwidth].segment_sizes[segment_id-1]))
-        #print("bw: {} segment_id: {} size: {}".format(bandwidth, segment_id, media_object[bandwidth].segment_sizes[segment_id-1]))
+        config_dash.LOG.info("bitrate: {} segment_id: {} size: {}KB".format(
+            bandwidth, segment_id, media_object[bandwidth].segment_sizes[segment_id-1] >> 10))
         return int(media_object[bandwidth].segment_sizes[segment_id-1])

@@ -9,13 +9,13 @@ import config_dash
 
 FORMAT = 0
 URL_LIST = list()
-# Dictionary to convert size to bits
-SIZE_DICT = {'bits':   1,
-             'Kbits':  1024,
-             'Mbits':  1024*1024,
-             'bytes':  8,
-             'KB':  1024*8,
-             'MB': 1024*1024*8,
+# Dictionary to convert size to bytes
+SIZE_DICT = {'bits':   0.125,
+             'Kbits':  128,
+             'Mbits':  1024*128,
+             'bytes':  1,
+             'KB':  1024,
+             'MB': 1024*1024,
              }
 # Try to import the C implementation of ElementTree which is faster
 # In case of ImportError import the pure Python implementation
@@ -175,8 +175,7 @@ def read_mpd(mpd_file, dashplayback):
                             if 'video' in adaptation_set.attrib['mimeType']:
                                 if "SegmentSize" in get_tag_name(segment_info.tag):
                                     try:
-                                        segment_size = float(segment_info.attrib['size']) * float(
-                                            SIZE_DICT[segment_info.attrib['scale']])
+                                        segment_size = int( float(segment_info.attrib['size']) * SIZE_DICT[segment_info.attrib['scale']] )
                                     except KeyError, e:
                                         config_dash.LOG.error("Error in reading Segment sizes :{}".format(e))
                                         continue
