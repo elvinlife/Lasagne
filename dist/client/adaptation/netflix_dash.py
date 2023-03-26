@@ -72,7 +72,7 @@ def get_rate_netflix(bitrates, current_buffer_occupancy, buffer_size=config_dash
             if marker < buffer_percentage:
                 break
             next_bitrate = rate_map[marker]
-    config_dash.LOG.info("NETFLIX: buffer_percentage: %.3f Next bitrate = %d Kbps" % (buffer_percentage, next_bitrate>>10))
+    config_dash.LOG.info("NETFLIX: buffer_percentage: %.3f Next bitrate = %d Kbps" % (buffer_percentage, next_bitrate))
     return next_bitrate
 
 

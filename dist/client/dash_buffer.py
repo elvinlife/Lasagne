@@ -256,4 +256,4 @@ class DashPlayer:
             config_dash.LOG.info("BufferStats: EpochTime: %.2f CurrentPlayBackTime: %d SegmentNum: %d "
                         "BufferSize: %d PlayBackState: %s Action: %s Bitrate: %dKbps" % \
                         (log_time, self.playback_timer.time(), self.buffer.qsize(), \
-                            self.buffer_length, self.playback_state, action, bitrate>>10))
+                            self.buffer_length, self.playback_state, action, bitrate))
