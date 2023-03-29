@@ -200,7 +200,7 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
     for bitrate in dp_object.video:
         # Getting the URL list for each bitrate
         dp_object.video[bitrate] = read_mpd.get_url_list(dp_object.video[bitrate], video_segment_duration,
-                                                         dp_object.playback_duration, bitrate)
+                                                         dp_object.video[bitrate].timescale * video_segment_duration, bitrate)
         if "$Bandwidth$" in dp_object.video[bitrate].initialization:
             dp_object.video[bitrate].initialization = dp_object.video[bitrate].initialization.replace(
                 "$Bandwidth$", str(bitrate))
@@ -226,8 +226,11 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
     average_segment_sizes = netflix_rate_map = None
     netflix_state = "INITIAL"
     # Start playback of all the segments
-    for segment_number, segment in enumerate(dp_list, dp_object.video[current_bitrate].start):
-        print("\n{}: Processing the segment {}".format(playback_type.upper(), segment_number))
+    # for segment_number, segment in enumerate(dp_list, dp_object.video[current_bitrate].start):
+    timer = 0
+    while timer < int(dp_object.playback_duration / video_segment_duration):
+        segment_number = timer % len(dp_list)
+        print("\n{}: Processing the segment: {} timer: {}".format(playback_type.upper(), segment_number, timer))
         write_json()
         if not previous_bitrate:
             previous_bitrate = current_bitrate
@@ -248,7 +251,7 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 if dash_player.buffer.qsize() > config_dash.BASIC_THRESHOLD:
                     delay = dash_player.buffer.qsize() - config_dash.BASIC_THRESHOLD
                 config_dash.LOG.info("Basic-DASH: Selected %d Kbps for the segment %d" %
-                    (current_bitrate>>10, segment_number + 1))
+                    (current_bitrate>>10, segment_number))
             elif playback_type.upper() == "SMART":
                 if not weighted_mean_object:
                     weighted_mean_object = WeightedMean(config_dash.SARA_SAMPLE_COUNT)
@@ -268,7 +271,7 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 # Calculate the average segment sizes for each bitrate
                 if not average_segment_sizes:
                     average_segment_sizes = get_average_segment_sizes(dp_object)
-                if segment_number < len(dp_list) - 1 + dp_object.video[bitrate].start:
+                if segment_number < len(dp_list) + dp_object.video[bitrate].start:
                     try:
                         if segment_size and segment_download_time:
                             segment_download_rate = segment_size / segment_download_time
@@ -291,7 +294,8 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 config_dash.LOG.error("Unknown playback type:{}. Continuing with basic playback".format(playback_type))
                 current_bitrate, average_dwn_time = basic_dash.basic_dash(segment_number, bitrates, average_dwn_time,
                                                                           segment_download_time, current_bitrate)
-        segment_path = dp_list[segment][current_bitrate]
+        # segment_path = dp_list[segment][current_bitrate]
+        segment_path = dp_list[segment_number][current_bitrate]
 
         segment_url = urlparse.urljoin(domain, segment_path)
         #config_dash.LOG.info("{}: Segment URL = {}".format(playback_type.upper(), segment_url))
@@ -342,6 +346,7 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
             elif previous_bitrate > current_bitrate:
                 config_dash.JSON_HANDLE['playback_info']['down_shifts'] += 1
             previous_bitrate = current_bitrate
+        timer += 1
 
     # waiting for the player to finish playing
     while dash_player.playback_state not in dash_buffer.EXIT_STATES:
@@ -485,6 +490,7 @@ def main():
     # Reading the MPD file created
     dp_object, video_segment_duration = read_mpd.read_mpd(mpd_file, dp_object)
 
+    print(dp_object)
     # bw = next(iter(dp_object.video))
     # config_dash.LOG.info("bw: {} media: {}".format(bw, dp_object.video[bw]))
     # config_dash.LOG.info("The DASH media has %d video representations" % len(dp_object.video))

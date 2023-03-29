@@ -139,7 +139,7 @@ def read_videoconfig(config_file, dashplayback):
     config_dash.JSON_HANDLE["video_metadata"] = {'mpd_file': config_file}
     config_dash.LOG.info("Retrieving Media")
     config_dash.JSON_HANDLE["video_metadata"]['available_bitrates'] = list()
-    dashplayback.playback_duration = get_playback_time("PT0H0M20S")
+    dashplayback.playback_duration = get_playback_time("PT0H5M00S")
     dashplayback.min_buffer_time = get_playback_time("PT1.50000S")
     config_dash.JSON_HANDLE["video_metadata"]['playback_duration'] = dashplayback.playback_duration
     media_object = dashplayback.video
@@ -150,7 +150,7 @@ def read_videoconfig(config_file, dashplayback):
         media_object[bw].segment_sizes = []
         # hardcode those values
         media_object[bw].base_url = "media/BigBuckBunny/4sec/bunny_$Bandwidth$bps/BigBuckBunny_4s$Number$%d.m4s"
-        media_object[bw].start = 1
+        media_object[bw].start = 0
         media_object[bw].timescale = len(chunks)
         media_object[bw].initialization = "media/BigBuckBunny/4sec/bunny_$Bandwidth$bps/BigBuckBunny_4s_init.mp4"
         for segment in chunks:
