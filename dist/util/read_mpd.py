@@ -139,6 +139,8 @@ def read_videoconfig(config_file, dashplayback):
     config_dash.JSON_HANDLE["video_metadata"] = {'mpd_file': config_file}
     config_dash.LOG.info("Retrieving Media")
     config_dash.JSON_HANDLE["video_metadata"]['available_bitrates'] = list()
+
+    # hardcode video configuration
     dashplayback.playback_duration = get_playback_time("PT0H5M00S")
     dashplayback.min_buffer_time = get_playback_time("PT1.50000S")
     config_dash.JSON_HANDLE["video_metadata"]['playback_duration'] = dashplayback.playback_duration

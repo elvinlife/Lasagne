@@ -68,7 +68,6 @@ class DashPlayback:
 
 def get_mpd(url):
     """ Module to download the MPD from the URL and save it to file"""
-    print(url)
     try:
         connection = urllib2.urlopen(url, timeout=10)
     except urllib2.HTTPError, error:
@@ -119,6 +118,7 @@ def id_generator(id_size=6):
 
 def download_segment(segment_url, dash_folder):
     """ Module to download the segment """
+    config_dash.LOG.debug("download begins: {}".format(segment_url))
     t1 = timeit.default_timer()
     try:
         connection = urllib2.urlopen(segment_url)
@@ -133,7 +133,7 @@ def download_segment(segment_url, dash_folder):
         if len(segment_data) < DOWNLOAD_CHUNK:
             break
     t3 = timeit.default_timer()
-    config_dash.LOG.info("set_connection_time: %.2fs download_time: %.2fs" % (t2-t1, t3-t2))
+    config_dash.LOG.info("download ends, download_time: %.2fs" % (t3-t1))
     connection.close()
     return segment_size, ""
 
@@ -294,7 +294,7 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 config_dash.LOG.error("Unknown playback type:{}. Continuing with basic playback".format(playback_type))
                 current_bitrate, average_dwn_time = basic_dash.basic_dash(segment_number, bitrates, average_dwn_time,
                                                                           segment_download_time, current_bitrate)
-        # segment_path = dp_list[segment][current_bitrate]
+        # current_bitrate is the rate of the next chunk
         segment_path = dp_list[segment_number][current_bitrate]
 
         segment_url = urlparse.urljoin(domain, segment_path)

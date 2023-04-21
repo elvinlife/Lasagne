@@ -45,6 +45,10 @@ class DashPlayer:
         self.buffer_lock = threading.Lock()
         self.current_segment = None
         self.buffer_log_file = config_dash.BUFFER_LOG_FILENAME
+        # Record Current QoE
+        self.sum_qoe = 0
+        self.last_bitrate = 0
+        self.num_segments = 0
         config_dash.LOG.info("VideoLength={},segmentDuration={},MaxBufferSize={},InitialBuffer(secs)={},"
                              "BufferAlph(secs)={},BufferBeta(secs)={}".format(self.playback_duration,
                                                                               self.segment_duration,
@@ -123,7 +127,8 @@ class DashPlayer:
                             config_dash.JSON_HANDLE['playback_info']['interruptions']['events'].append(
                                 (interruption_start, interruption_end))
                             config_dash.JSON_HANDLE['playback_info']['interruptions']['total_duration'] += interruption
-                            config_dash.LOG.info("Duration of interruption = {}".format(interruption))
+                            config_dash.LOG.warning("Duration of interruption = {}".format(interruption))
+                            self.sum_qoe -= 3000 * interruption
                             interruption_start = None
                         self.set_state("PLAY")
                         self.log_entry("Buffering-Play")
@@ -158,7 +163,7 @@ class DashPlayer:
                     self.buffer_lock.release()
                     config_dash.LOG.info("Reading the segment number {} from the buffer at playtime {}".format(
                         play_segment['segment_number'], self.playback_timer.time()))
-                    self.log_entry(action="StillPlaying", bitrate=play_segment["bitrate"])
+                    # self.log_entry(action="StillPlaying", bitrate=play_segment["bitrate"])
 
                     # Calculate time playback when the segment finishes
                     future = self.playback_timer.time() + play_segment['playback_length']
@@ -200,8 +205,12 @@ class DashPlayer:
         if not self.actual_start_time:
             self.actual_start_time = time.time()
             config_dash.JSON_HANDLE['playback_info']['start_time'] = self.actual_start_time
-        config_dash.LOG.info("Writing segment %d at time %.2f" % 
+        config_dash.LOG.debug("Writing segment %d at time %.2f" % 
                 (segment['segment_number'], time.time() - self.actual_start_time))
+        self.num_segments += 1
+        self.sum_qoe += segment['bitrate']
+        self.sum_qoe -= abs(segment['bitrate'] - self.last_bitrate)
+        self.last_bitrate = segment['bitrate']
         self.buffer_lock.acquire()
         self.buffer.put(segment)
         self.buffer_lock.release()
@@ -251,9 +260,11 @@ class DashPlayer:
                 if header_row:
                     result_writer.writerow(header_row)
                 result_writer.writerow(str_stats)
-            # config_dash.LOG.info("BufferStats: EpochTime=%s,CurrentPlaybackTime=%s,CurrentBufferSize=%s,"
-            #                      "CurrentPlaybackState=%s,Action=%s,Bitrate=%s" % tuple(str_stats))
+            avg_qoe = 0
+            if self.num_segments > 0:
+                avg_qoe = self.sum_qoe / float(self.num_segments)
             config_dash.LOG.info("BufferStats: EpochTime: %.2f CurrentPlayBackTime: %d SegmentNum: %d "
-                        "BufferSize: %d PlayBackState: %s Action: %s Bitrate: %dKbps" % \
+                        "BufferSize: %d PlayBackState: %s Action: %s Bitrate: %dKbps QoE: %.2f" % \
                         (log_time, self.playback_timer.time(), self.buffer.qsize(), \
-                            self.buffer_length, self.playback_state, action, bitrate))
+                            self.buffer_length, self.playback_state, action, bitrate, \
+                                avg_qoe ))
