@@ -76,7 +76,7 @@ MAX_BUFFER_SIZE = None
 # Constants is terms of buffer occupancy PERCENTAGE(%)
 NETFLIX_RESERVOIR = 0.1
 NETFLIX_CUSHION = 0.9
-# Buffer Size in Number of segments 240/4
+# Buffer Size in Number of segments 120/4
 NETFLIX_BUFFER_SIZE = 30
 NETFLIX_INITIAL_BUFFER = 2
 NETFLIX_INITIAL_FACTOR = 0.875
@@ -90,3 +90,6 @@ index_rtt_min = None
 index_rtt_avg = None
 index_rtt_max = None
 RTT = False
+
+# For FastMpc
+LOOKUP_FNAME = "/home/networklab/yc28/mpc_table.log"

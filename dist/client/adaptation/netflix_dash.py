@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
-__author__ = 'pjuluri'
+__author__ = 'alvin'
 
 """
  The current module is the buffer based adaptaion scheme used by Netflix. Current design is based
@@ -72,7 +72,7 @@ def get_rate_netflix(bitrates, current_buffer_occupancy, buffer_size=config_dash
             if marker < buffer_percentage:
                 break
             next_bitrate = rate_map[marker]
-    config_dash.LOG.info("NETFLIX: buffer_percentage: %.3f Next bitrate = %d Kbps" % (buffer_percentage, next_bitrate))
+    config_dash.LOG.info("NETFLIX: buffer_percentage: %.3f next_bitrate: %d Kbps" % (buffer_percentage, next_bitrate))
     return next_bitrate
 
 
@@ -80,13 +80,13 @@ def netflix_dash(bitrates, dash_player, segment_download_rate, curr_bitrate, ave
     """
     Netflix rate adaptation module
     """
-    available_video_segments = dash_player.buffer_length - dash_player.initial_buffer
+    available_video_segments = dash_player.buffer.qsize() - dash_player.initial_buffer
     if not (curr_bitrate or rate_map or state):
         rate_map = get_rate_map(bitrates)
         state = "INITIAL"
         next_bitrate = bitrates[0]
     elif state == "INITIAL":
-        # if the B increases by more than 0.875V s. Since B = V - ChunkSize/c[k],
+        # if the B increases by more than 0.875V s. Since B = V - ChunkSize/c[k],
         # B > 0:875V also means that the chunk is downloaded eight times faster than it is played
         next_bitrate = curr_bitrate
         # delta-B = V - ChunkSize/c[k]

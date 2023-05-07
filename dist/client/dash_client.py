@@ -29,7 +29,7 @@ sys.path.append("./dist/util/")
 import config_dash
 import read_mpd
 from configure_log_file import configure_log_file, write_json
-from adaptation import basic_dash, basic_dash2, weighted_dash, netflix_dash
+from adaptation import basic_dash, basic_dash2, weighted_dash, netflix_dash, fastmpc_dash
 from adaptation.adaptation import WeightedMean
 import dash_buffer
 import time
@@ -133,7 +133,7 @@ def download_segment(segment_url, dash_folder):
         if len(segment_data) < DOWNLOAD_CHUNK:
             break
     t3 = timeit.default_timer()
-    config_dash.LOG.info("download ends, download_time: %.2fs" % (t3-t1))
+    config_dash.LOG.debug("download ends, download_time: %.2fs" % (t3-t1))
     connection.close()
     return segment_size, ""
 
@@ -266,7 +266,6 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                                                                                                segment_number+1))
                     except IndexError, e:
                         config_dash.LOG.error(e)
-
             elif playback_type.upper() == "NETFLIX":
                 # Calculate the average segment sizes for each bitrate
                 if not average_segment_sizes:
@@ -290,6 +289,18 @@ def start_playback_smart(dp_object, domain, playback_type=None, download=False, 
                 if dash_player.buffer.qsize() >= config_dash.NETFLIX_BUFFER_SIZE:
                     delay = (dash_player.buffer.qsize() - config_dash.NETFLIX_BUFFER_SIZE + 1) * segment_duration
                     config_dash.LOG.info("NETFLIX: delay = {} seconds".format(delay))
+            elif playback_type.upper() == "FASTMPC":
+                try:
+                    current_bitrate = fastmpc_dash.fastmpc_dash(
+                        bitrates, dash_player,
+                        recent_download_sizes, previous_segment_times,
+                        previous_bitrate)
+                except IndexError, e:
+                    config_dash.LOG.error(e)
+                if dash_player.buffer.qsize() >= config_dash.NETFLIX_BUFFER_SIZE:
+                    delay = (dash_player.buffer.qsize() - config_dash.NETFLIX_BUFFER_SIZE + 1) * segment_duration
+                    config_dash.LOG.info("FastMPC: delay = {} seconds".format(delay))
+
             else:
                 config_dash.LOG.error("Unknown playback type:{}. Continuing with basic playback".format(playback_type))
                 current_bitrate, average_dwn_time = basic_dash.basic_dash(segment_number, bitrates, average_dwn_time,
@@ -498,6 +509,7 @@ def main():
         # Print the representations and EXIT
         print_representations(dp_object)
         return None
+    print(type(PLAYBACK))
     if "all" in PLAYBACK.lower():
         if mpd_file:
             config_dash.LOG.critical("Start ALL Parallel PLayback")
@@ -511,6 +523,9 @@ def main():
     elif "netflix" in PLAYBACK.lower():
         config_dash.LOG.critical("Started Netflix-DASH Playback")
         start_playback_smart(dp_object, domain, "NETFLIX", DOWNLOAD, video_segment_duration)
+    elif "fastmpc" in PLAYBACK.lower():
+        config_dash.LOG.critical("Started FastMPC-DASH Playback")
+        start_playback_smart(dp_object, domain, "FastMPC", DOWNLOAD, video_segment_duration)
     else:
         config_dash.LOG.error("Unknown Playback parameter {}".format(PLAYBACK))
         return None
